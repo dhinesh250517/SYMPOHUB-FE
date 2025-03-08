@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zelabria - sympo Hub</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+<header>
+    <div class="logo">
+        <img src="logo.jpg" alt="Zelabria Logo">
+        <h1>Sympohub</h1>
+    </div>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="submit.html">Submit Event</a></li>
+            <li><a href="about.html">About</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section id="events">
+    <h2>Upcoming Events</h2>
+    <div class="event-container" id="event-container">
+        </div>
+</section>
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-info">
+                <h3>Zelabria</h3>
+                <p>Web Development • Maintenance • Consulting</p>
+            </div>
+            <div class="social-links">
+                <a href="" target="_blank" rel="noopener noreferrer">
+                    <i data-lucide="github"></i>
+                </a>
+                <a href="https://www.linkedin.com/company/zelabria/" target="_blank" rel="noopener noreferrer">
+                    <i data-lucide="linkedin"></i>
+                </a>
+                <a href="https://www.instagram.com/zelabria?igsh=NnEzbmtyNHB2eHo1" target="_blank" rel="noopener noreferrer">
+                    <i data-lucide="instagram"></i>
+                </a>
+                <a href="mailto:contact.zelabria@gmail.com">
+                    <i data-lucide="mail"></i>
+                </a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; <span id="year"></span> Zelabria. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+    
+    // Update year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
+
+
+<script>
+const events = [
+    {
+        name: 'SympoTech 2025',
+        college: 'Saveetha Engineering College',
+        date: '2025-03-15',
+        time: '10:00 AM - 5:00 PM',
+        type: 'Technical',
+        members: '4 Members per team',
+        description: 'A technical symposium with various rounds and prizes.',
+        rounds: '3 Rounds',
+        coordinators: 'John Doe, Jane Smith',
+        contact: '9876543210',
+        email: 'info@saveetha.edu',
+        link: 'https://example.com/register',
+        poster: 'p1.png'
+    },
+    {
+        name: 'Innovate 2025',
+        college: 'Velammal Engineering College',
+        date: '2025-03-20',
+        time: '9:00 AM - 4:00 PM',
+        type: 'Hackathon',
+        members: '3 Members per team',
+        description: 'A coding hackathon with exciting prizes.',
+        rounds: '4 Rounds',
+        coordinators: 'Alex Watson, Emily Clark',
+        contact: '9876543211',
+        email: 'info@velammal.edu',
+        link: 'https://example.com/register',
+        poster: 'P3.jpg'
+    }
+];
+
+const container = document.getElementById('event-container');
+
+function renderEvents() {
+    container.innerHTML = '';
+    events.sort((a, b) => new Date(a.date) - new Date(b.date));
+    events.forEach(event => {
+        const card = document.createElement('div');
+        card.className = 'event-card';
+        card.innerHTML = `
+            <img src="${event.poster}" alt="${event.name}" class="event-poster" onclick="showPoster('${event.poster}', '${event.name}')">
+            <h3>${event.name}</h3>
+            <p><strong>College:</strong> ${event.college}</p>
+            <p><strong>Date:</strong> ${event.date}</p>
+            <button onclick="showDetails(${events.indexOf(event)})">View More</button>
+        `;
+        container.appendChild(card);
+    });
+}
+
+function showDetails(index) {
+    const event = events[index];
+    const popup = document.createElement('div');
+    popup.className = 'popup';
+    popup.innerHTML = `
+        <div class="popup-content">
+            <span class="close" onclick="closePopup()">&times;</span>
+            
+            <h3>${event.name}</h3>
+            <p><strong>College:</strong> ${event.college}</p>
+            <p><strong>Date:</strong> ${event.date}</p>
+            <p><strong>Time:</strong> ${event.time}</p>
+            <p><strong>Type:</strong> ${event.type}</p>
+            <p><strong>Members:</strong> ${event.members}</p>
+            <p><strong>Description:</strong> ${event.description}</p>
+            <p><strong>Rounds:</strong> ${event.rounds}</p>
+            <p><strong>Coordinators:</strong> ${event.coordinators}</p>
+            <p><strong>Contact:</strong> ${event.contact}</p>
+            <p><strong>Email:</strong> ${event.email}</p>
+            <a href="${event.link}" target="_blank">Register Here</a>
+        </div>
+    `;
+    document.body.appendChild(popup);
+}
+
+function closePopup() {
+    const popup = document.querySelector('.popup');
+    if (popup) {
+        popup.remove();
+    }
+}
+
+function showPoster(posterSrc, eventName) {
+    const posterPopup = document.createElement('div');
+    posterPopup.className = 'poster-popup';
+    posterPopup.innerHTML = `
+        <div class="poster-popup-content">
+            <span class="close" onclick="closePosterPopup()">&times;</span>
+            <img src="${posterSrc}" alt="${eventName}" style="max-width: 500px; max-height: 500px;">
+        </div>
+    `;
+    document.body.appendChild(posterPopup);
+}
+
+function closePosterPopup() {
+    const posterPopup = document.querySelector('.poster-popup');
+    if (posterPopup) {
+        posterPopup.remove();
+    }
+}
+
+renderEvents();
+</script>
+
+<style>
+.event-card img {
+    width: 100%;
+    height: auto;
+    max-height: 250px;
+    object-fit: contain;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.popup-content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align:left;
+    position: relative;
+}
+.popup-content img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    object-fit: contain;
+}
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    cursor: pointer;
+}
+.poster-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.poster-popup-content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    position: relative;
+}
+
+</style>
+
+</body>
+</html>

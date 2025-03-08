@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Event - Zelabria</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+<header>
+    <div class="logo">
+        <img src="logo.jpg" alt="Zelabria Logo">
+        <h1>Sympohub</h1>
+    </div>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="submit.html">Submit Event</a></li>
+            <li><a href="about.html">About</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section id="submit">
+    <h3>wait a sec...</h3>
+    <h2>Submit Your Event</h2>
+    <p>Fill the form below to submit your event poster and details:</p>
+    <div class="form-container" style="max-width: 600px; margin: auto;">
+        <iframe 
+            src="https://docs.google.com/forms/d/e/1FAIpQLSeRmArO6ILX4qQR_NOpO5-V4tIfKmFojvpZz6HqRjtLkPEN-Q/viewform?embedded=true" 
+            width="100%" 
+            height="450" 
+            frameborder="0" 
+            marginheight="0" 
+            marginwidth="0"
+            allowfullscreen>
+        Loading…
+        </iframe>
+    </div>
+    <h3>after verification the posters will be uploaded in the webiste by 7pm everyday!</h3>
+</section>
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-info">
+                <h3>Zelabria</h3>
+                <p>Web Development • Maintenance • Consulting</p>
+            </div>
+            <div class="social-links">
+                <a href="" target="_blank" rel="noopener noreferrer">
+                    <i data-lucide="github"></i>
+                </a>
+                <a href="https://www.linkedin.com/company/zelabria/" target="_blank" rel="noopener noreferrer">
+                    <i data-lucide="linkedin"></i>
+                </a>
+                <a href="https://www.instagram.com/zelabria?igsh=NnEzbmtyNHB2eHo1" target="_blank" rel="noopener noreferrer">
+                    <i data-lucide="instagram"></i>
+                </a>
+                <a href="mailto:contact.zelabria@gmail.com">
+                    <i data-lucide="mail"></i>
+                </a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; <span id="year"></span> Zelabria. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+    
+    // Update year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>

@@ -1,0 +1,192 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Body Background */
+body {
+    background-color: #f4f4f4;
+}
+
+/* Header Section */
+header {
+    background-color: #1e293b;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+
+header .logo {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding-left: 20px;
+}
+
+header .logo img {
+    width: 40px;
+    height: auto;
+    
+    border-radius: 10;
+}
+
+header .logo h1 {
+    font-size: 24px;
+    margin: 0;
+    white-space: nowrap;
+    text-align: center;
+}
+
+/* Navigation Bar */
+nav ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 10px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 18px;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #85e9ff;
+}
+
+/* Events Section */
+#events {
+    padding: 60px 20px;
+    background-color: #fff;
+    text-align: center;
+}
+
+#events h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+/* Event Card Design */
+.event-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.event-card {
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.event-card h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.event-card p {
+    font-size: 14px;
+    color: #666;
+}
+
+.event-card button {
+    background-color: #b6b6b6;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    color: #000;
+    font-weight: bold;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.event-card button:hover {
+    background-color: #6b6b6b;
+}
+
+/* Submit Event Section */
+#submit {
+    padding: 60px 20px;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+#submit a {
+    background-color: #1e293b;
+    color: #fff;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+#submit a:hover {
+    background-color: #334155;
+}
+
+/* About Section */
+#about {
+    padding: 60px 20px;
+    text-align: center;
+    background-color: #fff;
+}
+
+#about h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+#about p {
+    color: #666;
+    font-size: 18px;
+}
+
+#about .social-links a {
+    text-decoration: none;
+    margin: 0 10px;
+    color: #1e293b;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+#about .social-links a:hover {
+    color: #797979;
+}
+
+/* Footer Section */
+footer {
+    background-color: #1e293b;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+footer .social-links a {
+    text-decoration: none;
+    margin: 0 10px;
+    color: #989898;
+}
+
+footer .social-links a:hover {
+    color: #ffffff;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        gap: 20px;
+    }
+}
