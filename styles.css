@@ -15,7 +15,7 @@ body {
 header {
     background-color: #1e293b;
     color: #fff;
-    padding: 10px 0;
+    padding: 50px 0;
     text-align: center;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
@@ -24,8 +24,8 @@ header {
 header .logo {
     display: flex;
     align-items: center;
-    gap: 20px;
-    padding-left: 20px;
+    gap: 10px;
+    padding-left: 10px;
 }
 
 header .logo img {
@@ -36,7 +36,7 @@ header .logo img {
 }
 
 header .logo h1 {
-    font-size: 24px;
+    font-size: 20px;
     margin: 0;
     white-space: nowrap;
     text-align: center;
@@ -46,15 +46,15 @@ header .logo h1 {
 nav ul {
     list-style-type: none;
     display: flex;
-    justify-content: center;
-    gap: 40px;
+    justify-content:center;
+    gap: 5px;
     margin-top: 10px;
 }
 
 nav ul li a {
     text-decoration: none;
     color: #fff;
-    font-size: 18px;
+    font-size: 16px;
     transition: color 0.3s;
 }
 
