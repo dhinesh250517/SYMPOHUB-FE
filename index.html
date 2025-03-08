@@ -1,9 +1,11 @@
+/* This is the new index.html */
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zelabria - SympoHub</title>
+    <title>Zelabria - sympo Hub</title>
     <link rel="stylesheet" href="styles.css">
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
@@ -14,7 +16,10 @@
         <img src="logo.jpg" alt="Zelabria Logo">
         <h1>Sympohub</h1>
     </div>
-    <nav>
+    <div class="hamburger" onclick="toggleNav()">
+        <i data-lucide="menu"></i>
+    </div>
+    <nav class="navbar">
         <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="submit.html">Submit Event</a></li>
@@ -37,10 +42,18 @@
                 <p>Web Development • Maintenance • Consulting</p>
             </div>
             <div class="social-links">
-                <a href="https://github.com" target="_blank"><i data-lucide="github"></i></a>
-                <a href="https://www.linkedin.com/company/zelabria/" target="_blank"><i data-lucide="linkedin"></i></a>
-                <a href="https://www.instagram.com/zelabria" target="_blank"><i data-lucide="instagram"></i></a>
-                <a href="mailto:contact.zelabria@gmail.com"><i data-lucide="mail"></i></a>
+                <a href="" target="_blank" rel="noopener noreferrer">
+                    <i data-lucide="github"></i>
+                </a>
+                <a href="https://www.linkedin.com/company/zelabria/" target="_blank" rel="noopener noreferrer">
+                    <i data-lucide="linkedin"></i>
+                </a>
+                <a href="https://www.instagram.com/zelabria?igsh=NnEzbmtyNHB2eHo1" target="_blank" rel="noopener noreferrer">
+                    <i data-lucide="instagram"></i>
+                </a>
+                <a href="mailto:contact.zelabria@gmail.com">
+                    <i data-lucide="mail"></i>
+                </a>
             </div>
         </div>
         <div class="footer-bottom">
@@ -50,155 +63,76 @@
 </footer>
 
 <script>
-lucide.createIcons();
-document.getElementById('year').textContent = new Date().getFullYear();
+    // Initialize Lucide icons
+    lucide.createIcons();
 
-const events = [
-    {
-        name: 'SympoTech 2025',
-        college: 'Saveetha Engineering College',
-        date: '2025-03-15',
-        time: '10:00 AM - 5:00 PM',
-        type: 'Technical',
-        members: '4 Members per team',
-        description: 'A technical symposium with various rounds and prizes.',
-        rounds: '3 Rounds',
-        coordinators: 'John Doe, Jane Smith',
-        contact: '9876543210',
-        email: 'info@saveetha.edu',
-        link: 'https://example.com/register',
-        poster: 'p1.png'
-    },
-    {
-        name: 'Innovate 2025',
-        college: 'Velammal Engineering College',
-        date: '2025-03-20',
-        time: '9:00 AM - 4:00 PM',
-        type: 'Hackathon',
-        members: '3 Members per team',
-        description: 'A coding hackathon with exciting prizes.',
-        rounds: '4 Rounds',
-        coordinators: 'Alex Watson, Emily Clark',
-        contact: '9876543211',
-        email: 'info@velammal.edu',
-        link: 'https://example.com/register',
-        poster: 'cir.jpg'
+    // Update year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Toggle Navbar for mobile
+    function toggleNav() {
+        const navbar = document.querySelector('.navbar');
+        navbar.classList.toggle('active');
     }
-];
-
-const container = document.getElementById('event-container');
-
-function renderEvents() {
-    container.innerHTML = '';
-    events.sort((a, b) => new Date(a.date) - new Date(b.date));
-    events.forEach(event => {
-        const card = document.createElement('div');
-        card.className = 'event-card';
-        card.innerHTML = `
-            <img src="${event.poster}" alt="${event.name}" class="event-poster" onclick="showPoster('${event.poster}', '${event.name}')">
-            <h3>${event.name}</h3>
-            <p><strong>College:</strong> ${event.college}</p>
-            <p><strong>Date:</strong> ${event.date}</p>
-            <button onclick="showDetails(${events.indexOf(event)})">View More</button>
-        `;
-        container.appendChild(card);
-    });
-}
-
-function showDetails(index) {
-    const event = events[index];
-    const popup = document.createElement('div');
-    popup.className = 'popup';
-    popup.innerHTML = `
-        <div class="popup-content">
-            <span class="close" onclick="closePopup()">&times;</span>
-            <h3>${event.name}</h3>
-            <p><strong>College:</strong> ${event.college}</p>
-            <p><strong>Date:</strong> ${event.date}</p>
-            <p><strong>Time:</strong> ${event.time}</p>
-            <p><strong>Type:</strong> ${event.type}</p>
-            <p><strong>Members:</strong> ${event.members}</p>
-            <a href="${event.link}" target="_blank">Register Here</a>
-        </div>
-    `;
-    document.body.appendChild(popup);
-}
-
-function closePopup() {
-    document.querySelector('.popup').remove();
-}
-
-renderEvents();
 </script>
 
 <style>
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-}
+    /* General Reset */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+    }
 
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 20px;
-    background-color: #1e293b;
-    color: white;
-}
+    /* Header */
+    header {
+        background-color: #1e293b;
+        color: white;
+        padding: 20px;
+        text-align: center;
+    }
 
-.logo img {
-    height: 40px;
-}
+    .logo img {
+        width: 40px;
+        height: auto;
+    }
 
-nav ul {
-    list-style: none;
-    display: flex;
-}
+    .hamburger {
+        display: none;
+        font-size: 24px;
+        cursor: pointer;
+    }
 
-nav ul li {
-    margin: 0 15px;
-}
+    nav ul {
+        list-style: none;
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+    }
 
-.event-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-    padding: 20px;
-}
+    nav ul li a {
+        text-decoration: none;
+        color: white;
+    }
 
-.event-card {
-    background-color: #f4f4f4;
-    border-radius: 10px;
-    padding: 15px;
-    text-align: center;
-}
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .hamburger {
+            display: block;
+        }
 
-.event-card img {
-    width: 100%;
-    max-height: 200px;
-    border-radius: 10px;
-    object-fit: contain;
-}
+        .navbar {
+            display: none;
+            flex-direction: column;
+            text-align: center;
+            gap: 15px;
+        }
 
-.popup {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.popup-content {
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-}
+        .navbar.active {
+            display: flex;
+        }
+    }
 </style>
-
 </body>
 </html>
