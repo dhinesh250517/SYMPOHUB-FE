@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zelabria - sympo Hub</title>
+    <title>Zelabria - SympoHub</title>
     <link rel="stylesheet" href="styles.css">
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
@@ -26,7 +26,7 @@
 <section id="events">
     <h2>Upcoming Events</h2>
     <div class="event-container" id="event-container">
-        </div>
+    </div>
 </section>
 
 <footer class="footer">
@@ -37,18 +37,10 @@
                 <p>Web Development • Maintenance • Consulting</p>
             </div>
             <div class="social-links">
-                <a href="" target="_blank" rel="noopener noreferrer">
-                    <i data-lucide="github"></i>
-                </a>
-                <a href="https://www.linkedin.com/company/zelabria/" target="_blank" rel="noopener noreferrer">
-                    <i data-lucide="linkedin"></i>
-                </a>
-                <a href="https://www.instagram.com/zelabria?igsh=NnEzbmtyNHB2eHo1" target="_blank" rel="noopener noreferrer">
-                    <i data-lucide="instagram"></i>
-                </a>
-                <a href="mailto:contact.zelabria@gmail.com">
-                    <i data-lucide="mail"></i>
-                </a>
+                <a href="https://github.com" target="_blank"><i data-lucide="github"></i></a>
+                <a href="https://www.linkedin.com/company/zelabria/" target="_blank"><i data-lucide="linkedin"></i></a>
+                <a href="https://www.instagram.com/zelabria" target="_blank"><i data-lucide="instagram"></i></a>
+                <a href="mailto:contact.zelabria@gmail.com"><i data-lucide="mail"></i></a>
             </div>
         </div>
         <div class="footer-bottom">
@@ -58,17 +50,9 @@
 </footer>
 
 <script>
-    // Initialize Lucide icons
-    lucide.createIcons();
-    
-    // Update year in footer
-    document.getElementById('year').textContent = new Date().getFullYear();
-</script>
-</body>
-</html>
+lucide.createIcons();
+document.getElementById('year').textContent = new Date().getFullYear();
 
-
-<script>
 const events = [
     {
         name: 'SympoTech 2025',
@@ -98,7 +82,7 @@ const events = [
         contact: '9876543211',
         email: 'info@velammal.edu',
         link: 'https://example.com/register',
-        poster: 'P3.jpg'
+        poster: 'p3.jpg'
     }
 ];
 
@@ -128,18 +112,12 @@ function showDetails(index) {
     popup.innerHTML = `
         <div class="popup-content">
             <span class="close" onclick="closePopup()">&times;</span>
-            
             <h3>${event.name}</h3>
             <p><strong>College:</strong> ${event.college}</p>
             <p><strong>Date:</strong> ${event.date}</p>
             <p><strong>Time:</strong> ${event.time}</p>
             <p><strong>Type:</strong> ${event.type}</p>
             <p><strong>Members:</strong> ${event.members}</p>
-            <p><strong>Description:</strong> ${event.description}</p>
-            <p><strong>Rounds:</strong> ${event.rounds}</p>
-            <p><strong>Coordinators:</strong> ${event.coordinators}</p>
-            <p><strong>Contact:</strong> ${event.contact}</p>
-            <p><strong>Email:</strong> ${event.email}</p>
             <a href="${event.link}" target="_blank">Register Here</a>
         </div>
     `;
@@ -147,93 +125,79 @@ function showDetails(index) {
 }
 
 function closePopup() {
-    const popup = document.querySelector('.popup');
-    if (popup) {
-        popup.remove();
-    }
-}
-
-function showPoster(posterSrc, eventName) {
-    const posterPopup = document.createElement('div');
-    posterPopup.className = 'poster-popup';
-    posterPopup.innerHTML = `
-        <div class="poster-popup-content">
-            <span class="close" onclick="closePosterPopup()">&times;</span>
-            <img src="${posterSrc}" alt="${eventName}" style="max-width: 500px; max-height: 500px;">
-        </div>
-    `;
-    document.body.appendChild(posterPopup);
-}
-
-function closePosterPopup() {
-    const posterPopup = document.querySelector('.poster-popup');
-    if (posterPopup) {
-        posterPopup.remove();
-    }
+    document.querySelector('.popup').remove();
 }
 
 renderEvents();
 </script>
 
 <style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #1e293b;
+    color: white;
+}
+
+.logo img {
+    height: 40px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+.event-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.event-card {
+    background-color: #f4f4f4;
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+}
+
 .event-card img {
     width: 100%;
-    height: auto;
-    max-height: 250px;
-    object-fit: contain;
+    max-height: 200px;
     border-radius: 10px;
-    cursor: pointer;
+    object-fit: contain;
 }
+
 .popup {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.5);
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
 .popup-content {
     background: white;
     padding: 20px;
     border-radius: 10px;
-    text-align:left;
-    position: relative;
 }
-.popup-content img {
-    width: 100%;
-    max-width: 400px;
-    height: auto;
-    object-fit: contain;
-}
-.close {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 24px;
-    cursor: pointer;
-}
-.poster-popup {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.poster-popup-content {
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    text-align: center;
-    position: relative;
-}
-
 </style>
 
 </body>
