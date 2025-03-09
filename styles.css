@@ -68,7 +68,7 @@ nav ul {
     padding: 0;
     display: flex;
     justify-content: center;
-    gap: 2rem; /* Adjust gap as needed */
+    /* Removed flex-wrap: wrap; */
 }
 
 /* Nav Links */
@@ -93,10 +93,13 @@ nav ul li a:hover {
     transition: background-color 0.3s;
 }
 
-/* Responsive Adjustment (Optional: Adjust gap on smaller screens) */
+/* Responsive Adjustment (Adjust gap and font size on smaller screens) */
 @media (max-width: 768px) {
     nav ul {
-        gap: 1rem; /* Adjust gap for smaller screens */
+        gap: 0.5rem; /* Reduced gap */
+    }
+    nav ul li a{
+        font-size: 0.9rem; /* reduced font size */
     }
 }
 
