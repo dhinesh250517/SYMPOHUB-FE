@@ -67,10 +67,8 @@ nav ul {
     list-style: none;
     padding: 0;
     display: flex;
-    flex-wrap: nowrap; /* ✅ This ensures the nav links always stay in one line */
     justify-content: center;
-    gap: 2rem;
-    overflow-x: auto; /* ✅ Makes it scrollable if there are too many links */
+    gap: 2rem; /* Adjust gap as needed */
 }
 
 /* Nav Links */
@@ -80,7 +78,6 @@ nav ul li a {
     font-weight: 500;
     transition: color 0.2s;
     padding: 5px 10px;
-    white-space: nowrap; /* ✅ Prevents links from breaking into another line */
 }
 
 /* Hover and Active Effects */
@@ -96,15 +93,12 @@ nav ul li a:hover {
     transition: background-color 0.3s;
 }
 
-/* Remove gap in mobile */
+/* Responsive Adjustment (Optional: Adjust gap on smaller screens) */
 @media (max-width: 768px) {
     nav ul {
-        flex-wrap: nowrap;
-        justify-content: center;
-        overflow-x: auto;
+        gap: 1rem; /* Adjust gap for smaller screens */
     }
 }
-
 
 
 
