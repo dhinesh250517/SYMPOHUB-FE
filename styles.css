@@ -66,19 +66,22 @@ header {
 nav ul {
     list-style: none;
     padding: 0;
+    margin: 0; /* Remove default margins */
     display: flex;
-    justify-content: center;
-    /* Removed flex-wrap: wrap; */
-}
-
-/* Nav Links */
-nav ul li a {
+    justify-content: center; /* Optional: Center the links */
+  }
+  
+  nav ul li {
+    margin: 0; /* Remove default margins */
+    padding: 0; /* Remove default padding */
+  }
+  
+  nav ul li a {
+    display: block; /* Allows padding and margins */
+    padding: 10px 15px; /* Adjust padding as needed */
     text-decoration: none;
-    color: #ffffff;
-    font-weight: 500;
-    transition: color 0.2s;
-    padding: 5px 10px;
-}
+    color: white; /* Or your desired color */
+  }
 
 /* Hover and Active Effects */
 nav ul li a:hover,
