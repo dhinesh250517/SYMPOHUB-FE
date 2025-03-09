@@ -63,25 +63,30 @@ nav ul li a:hover {
 }
 header {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
     padding: 15px 20px;
     background-color: #1e293b;
     color: white;
+    text-align: center;
 }
 
 .logo img {
     height: 30px;
+    margin-bottom: 10px; /* Adds space between logo and nav */
 }
 
 nav ul {
     list-style: none;
     display: flex;
+    justify-content: center;
+    padding: 0;
 }
 
 nav ul li {
     margin: 0 15px;
 }
+
 
 /* Events Section */
 #events {
